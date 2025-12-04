@@ -13,16 +13,17 @@ import MyProducts from './Components/MyProducts/MyProducts.jsx';
 import MyBids from './Components/MyBids/MyBids.jsx';
 import PrivateRoute from './Routes/PrivateRoute/PrivateRoute.jsx';
 import Login from './Components/Login/Login.jsx';
+import Home from './Components/Home/Home.jsx';
 
 
 const router = createBrowserRouter([
   {
     path:"/",
-    Component: RootLayOut,
+    element:<RootLayOut></RootLayOut>,
    children:[
     {
       index: true,
-      Component: AllProduts,
+      Component: Home,
     },
     {
       path: 'allproducts',
