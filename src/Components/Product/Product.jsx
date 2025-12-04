@@ -1,35 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Product = ({product}) => {
-    const {title, price_min, price_max, image} = product;
+    const {_id,title, price_min, price_max, image} = product;
     return (
-        // card 1
-       <div className="card bg-base-100 w-96 shadow-sm">
-  <figure className="px-10 pt-10">
+        
+       <div className="card bg-base-100  mt-10 shadow-sm">
+  <figure className="px-4 pt-4">
     <img
       src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
       alt="Shoes"
       className="rounded-xl" />
   </figure>
-  <div className="card-body items-center text-center">
-    <h2 className="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+  <div className="card-body  ">
+    <h2 className="card-title">{title}</h2>
+    <p>Price:{price_min} - {price_max}</p>
     <div className="card-actions">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-//card 2
-  <figure className="px-10 pt-10">
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes"
-      className="rounded-xl" />
-  </figure>
-  <div className="card-body items-center text-center">
-    <h2 className="card-title">Card Title</h2>
-    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-    <div className="card-actions">
-      <button className="btn btn-primary">Buy Now</button>
+      <Link to={`/productdetails/${product._id}`} className="btn btn-primary w-full">View Details</Link>
     </div>
   </div>
 </div>

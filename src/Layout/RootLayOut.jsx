@@ -7,9 +7,11 @@ import Product from '../Components/Product/Product';
 
 const RootLayOut = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-      
+        <div className='bg-base-300 max-w-[1400px] mx-auto'>
+          
+             <Navbar></Navbar>
+         
+            <Banner></Banner>
             <Outlet></Outlet>
                   
              

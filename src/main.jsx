@@ -14,6 +14,7 @@ import MyBids from './Components/MyBids/MyBids.jsx';
 import PrivateRoute from './Routes/PrivateRoute/PrivateRoute.jsx';
 import Login from './Components/Login/Login.jsx';
 import Home from './Components/Home/Home.jsx';
+import ProductDetails from './Components/ProductDetails/ProductDetails.jsx';
 
 
 const router = createBrowserRouter([
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
     {
       path: 'login',
       Component: Login,
+    },
+    {
+      path:'productdetails/:id',
+      loader: ({params}) => fetch(`http://localhost:3000/products/${params.id}`),
+      Component:ProductDetails,
     },
     
    ]
