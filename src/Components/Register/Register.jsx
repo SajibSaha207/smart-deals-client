@@ -38,17 +38,19 @@ fetch('http://localhost:3000/users',{
 }
 
     return (
-
+        
         <div className="card bg-base-100 mx-auto w-full max-w-sm shrink-0 shadow-2xl">
+            
             <div className="card-body">
+                <h1 className="text-5xl font-bold">Register now!</h1>
                 <fieldset className="fieldset">
                     <label className="label">Email</label>
                     <input type="email" className="input" placeholder="Email" />
 
                     <label className="label">Password</label>
                     <input type="password" className="input" placeholder="Password" />
-                    <h1 className="text-5xl font-bold">Register now!</h1>
-                    <button className="btn btn-neutral mt-4">Login</button>
+                    
+                    <button className="btn btn-neutral mt-4">Register</button>
                 </fieldset>
                 {/* Google */}
 <button onClick={handleGoogleSignIn}

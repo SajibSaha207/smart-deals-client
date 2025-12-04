@@ -49,7 +49,7 @@ const links =<>
   <div className="navbar-end">
     { user?
     <a onClick={handleSignOut} className="btn btn-primary">Sign Out</a> :
-    <Link to="/register" className="btn btn-primary ">Log In</Link>
+    <Link to="/login" className="btn btn-primary ">Log In</Link>
 }
   </div>
 </div>

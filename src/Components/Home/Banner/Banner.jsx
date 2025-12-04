@@ -16,15 +16,15 @@ const Banner = () => {
                 </div>
                 {/* search bar */}
 
-                <div class="w-[450px] flex justify-center mx-auto bg-white rounded-full shadow-md mt-7">
+                <div className="w-[450px] flex justify-center mx-auto bg-white rounded-full shadow-md mt-7">
     <input 
         type="text" 
         placeholder="Search for products, categories..." 
-        class="flex-1 px-4 py-2 text-sm text-gray-700 bg-transparent outline-none rounded-full"
+        className="flex-1 px-4 py-2 text-sm text-gray-700 bg-transparent outline-none rounded-full"
     />
     
     <button 
-        class="w-12 h-10 flex items-center justify-center rounded-full 
+        className="w-12 h-10 flex items-center justify-center rounded-full 
                bg-primary text-white text-lg"
     >
         <IoMdSearch />

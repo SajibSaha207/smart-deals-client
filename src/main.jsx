@@ -11,6 +11,8 @@ import AuthProvide from './Context/AuthProvide.jsx';
 import Register from './Components/Register/Register.jsx';
 import MyProducts from './Components/MyProducts/MyProducts.jsx';
 import MyBids from './Components/MyBids/MyBids.jsx';
+import PrivateRoute from './Routes/PrivateRoute/PrivateRoute.jsx';
+import Login from './Components/Login/Login.jsx';
 
 
 const router = createBrowserRouter([
@@ -24,7 +26,11 @@ const router = createBrowserRouter([
     },
     {
       path: 'allproducts',
-      Component:AllProduts
+      element:(
+        <PrivateRoute>
+          <AllProduts />
+        </PrivateRoute>
+      )
     },
     {
       path: 'register',
@@ -37,7 +43,12 @@ const router = createBrowserRouter([
     {
       path:'mybids',
       element:<MyBids></MyBids>
-    }
+    },
+    {
+      path: 'login',
+      Component: Login,
+    },
+    
    ]
   },
 ])
