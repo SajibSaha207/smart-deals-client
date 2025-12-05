@@ -1,6 +1,7 @@
 import React, { use, useRef } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext';
+import Swal from 'sweetalert2';
 
 const ProductDetails = () => {
 
@@ -13,7 +14,11 @@ const ProductDetails = () => {
     const handleBidModalOpen = () =>{
         bidModalRef.current.showModal();
 
+
     }
+
+
+
 
     const handleBidSubmit = (e) =>{
         e.preventDefault();
@@ -40,7 +45,18 @@ const ProductDetails = () => {
         })
         .then(res => res.json())
         .then(data =>{
-            console.log('after placing bid', data)
+            if(data.insertedId){
+                bidModalRef.current.close();
+
+                //sweetalert
+                Swal.fire({
+position: "top-end",
+  title: "Congratulations!",
+  text: "Your Bid Succesfull!",
+  icon: "success"
+});
+            }
+        
         })
     }
     return (
