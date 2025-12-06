@@ -44,6 +44,7 @@ useEffect(() =>{
             product: productId,
             buyer_name: name,
             buyer_email: email,
+            buyer_image: user?.photoURL,
             bid_price: bid,
             status: 'pending'
         }
@@ -80,7 +81,7 @@ position: "top-end",
                 </div>
                 <div>
                     <button onClick={handleBidModalOpen}
-                     className='btn- btn-primary'>I want to buy</button>
+                     className='btn- btn-primary m-5 p-2'>I want to buy</button>
 <dialog ref={bidModalRef} className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">
     <h3 className="font-bold text-lg">Give the best offer!</h3>
@@ -124,7 +125,65 @@ position: "top-end",
             </div>
             {/* bids for this product */}
             <div>
-                <h3 className='text-3xl'>Bids for this Product: <span className='text-primary'>{bids.length}</span></h3>
+                <h3 className='text-3xl m-5'>Bids for this Product: <span className='text-primary'>{bids.length}</span></h3>
+
+           {/* Biders Table */}
+           <div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        <th>
+      SL NO :
+        </th>
+        <th>Buyer Name</th>
+        <th>Buyer Email</th>
+        <th>Bid Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {/* row 1 */}
+     {
+        bids.map ((bid, index) =>  <tr>
+        
+        {/* serial number show */}
+        <th>{index + 1} </th>
+        <td>
+          <div className="flex items-center gap-3">
+            <div className="avatar">
+              <div className="mask mask-squircle h-12 w-12">
+                <img
+                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                  alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div>
+            <div>
+              <div className="font-bold">Hart Hagerty</div>
+              <div className="text-sm opacity-50">United States</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          Zemlak, Daniel and Leannon
+          <br />
+          <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+        </td>
+        <td>Purple</td>
+        <th>
+          <button className="btn btn-ghost btn-xs">details</button>
+        </th>
+      </tr>)
+     }
+      {/* row 2 */}
+      
+   
+      
+    </tbody>
+ 
+  </table>
+</div>
+
             </div>
         </div>
     );
