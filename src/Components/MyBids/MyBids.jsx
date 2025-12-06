@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
+import Swal from 'sweetalert2';
 
 const MyBids = () => {
 
@@ -17,6 +18,44 @@ const MyBids = () => {
             })
         }
     }, [user?.email])
+
+
+const handleDeleteBid = (_id) =>{
+Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+
+   fetch(`http://localhost:3000/bids/${_id}`, {
+    method: 'DELETE'
+   })
+   .then(res => res.json())
+   .then(data =>{
+  if(data.deletedCount){
+   Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success",
+    //   timer:1500
+    });
+    //remaing bids
+
+    const remainingBids = bids.filter(bid => bid._id !==_id);
+    setBids(remainingBids)
+  }
+   })
+ 
+  }
+});
+}
+
+
     return (
         <div>
             <h3>My Bids: {bids.length}</h3>
@@ -76,7 +115,7 @@ const MyBids = () => {
 
         </td>
         <th>
-          <button className="btn btn-outline btn-xs">Remove Bid</button>
+          <button onClick={ () => handleDeleteBid(bid._id)} className="btn btn-outline btn-xs">Remove Bid</button>
         </th>
       </tr>)
     }
