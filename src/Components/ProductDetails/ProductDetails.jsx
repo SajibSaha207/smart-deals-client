@@ -68,6 +68,12 @@ position: "top-end",
   icon: "success",
   timer:1500
 });
+
+//ADD THE NEW BID TO THE STATE
+newBid._id = data.insertedId;
+const newBids = [...bids, newBid];
+newBids.sort((a , b) => b.bid_price - a.bid_price)
+setBids(newBids);
             }
         
         })
@@ -159,17 +165,16 @@ position: "top-end",
               </div>
             </div>
             <div>
-              <div className="font-bold">Hart Hagerty</div>
+              <div className="font-bold"> {bid.buyer_name}</div>
               <div className="text-sm opacity-50">United States</div>
             </div>
           </div>
         </td>
         <td>
-          Zemlak, Daniel and Leannon
-          <br />
-          <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+           {bid.buyer_email}
+          
         </td>
-        <td>Purple</td>
+        <td>{bid.bid_price}</td>
         <th>
           <button className="btn btn-ghost btn-xs">details</button>
         </th>
