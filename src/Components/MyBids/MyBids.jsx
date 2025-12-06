@@ -28,11 +28,12 @@ const MyBids = () => {
     <thead>
       <tr>
         <th>
-         SL NO :
+         #
         </th>
-        <th>Name</th>
-        <th>Email</th>
+        <th>Product</th>
+        <th>Seller</th>
         <th>Bid Price</th>
+        <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -64,8 +65,18 @@ const MyBids = () => {
           
         </td>
         <td>{bid.bid_price}</td>
+        <td>
+{
+    bid.status == 'pending' ?<div className="badge badge-warning">
+                {bid.status}
+            </div> : <div className="badge badge-success">
+                {bid.status}
+            </div>
+}
+
+        </td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+          <button className="btn btn-outline btn-xs">Remove Bid</button>
         </th>
       </tr>)
     }
